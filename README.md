@@ -1,6 +1,6 @@
 # SEIS 744: IoT with Machine Learning
 **University of St. Thomas - Fall 2025**  
-**Instructor:** Justin Grammens  
+**Instructor:** [Justin Grammens](https://justingrammens.com)  
 **Course Materials Repository**
 
 ---
