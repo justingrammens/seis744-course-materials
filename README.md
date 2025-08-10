@@ -79,7 +79,42 @@ git clone https://github.com/{your-username}/piot-java-components.git
 git clone https://github.com/ust-seis744/seis744-course-materials.git
 ```
 
-### **Step 4: Set Up Upstream Remotes**
+### **Step 5: Setup a Virtal Python Environment and Install Modules
+
+This is covered in the setup of the book. Here's how you would setup your virtial environment in the programmingtheiot directory. It will create a new folder called piotenv
+
+On MAC OSX:
+
+**NOTE!** We are diverting from the book slightly as we are using the --system-site-packages flag as the PiSense program is requiring this.
+
+```bash
+cd ~/programmingtheiot
+python3 -m venv piotvenv --system-site-packages
+```
+
+activate the envionment with
+
+```bash
+. piotvenv/bin/activate
+```
+
+Upgrade pip
+```bash
+pip install --upgrade pip
+```
+
+Install modules
+```bash
+pip install -r ./python-components/requirements.txt
+```
+
+Install missing tools
+```bash
+pip install setuptools
+```
+
+
+### **Step 6: Set Up Upstream Remotes**
 
 This allows you to pull updates from Andy King's original repositories:
 
