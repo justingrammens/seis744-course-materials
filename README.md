@@ -58,22 +58,22 @@ Login to your GitHub account and [create repositories](https://docs.github.com/e
 
 ```bash
 # Python
-git clone https://github.com/programming-the-iot/python-components.git
+git clone https://github.com/programming-the-iot/cda-python-components.git
 
 # Java
-git clone https://github.com/programming-the-iot/java-components.git
+git clone https://github.com/programming-the-iot/gda-java-components.git
 
 ```
 
 This will create local folders:
 
-* python-components
-* java-components
+* cda-python-components
+* gda-java-components
 
 ```bash
 # --- Python repo ---
-cd python-components
-git remote set-url origin git@github.com:<your-username>/python-components.git
+cd cda-python-components
+git remote set-url origin git@github.com:<your-username>/cda-python-components.git
 git remote -v      # verify the 'origin' now points to your private repo
 
 git branch -M main # rename branch from "default" to main
@@ -81,8 +81,8 @@ git push -u origin main
 cd ..
 
 # --- Java repo ---
-cd java-components
-git remote set-url origin git@github.com:<your-username>/java-components.git
+cd gda-java-components
+git remote set-url origin git@github.com:<your-username>/gda-java-components.git
 git remote -v # verify the 'origin' now points to your private repo
 
 git branch -M main # rename branch from "default" to main
@@ -116,7 +116,7 @@ pip install --upgrade pip
 
 Install modules
 ```bash
-pip install -r ./python-components/requirements.txt
+pip install -r ./cda-python-components/requirements.txt
 ```
 
 Install missing tools
@@ -131,12 +131,12 @@ This allows you to pull updates from Andy King's original repositories:
 
 ```bash
 # Python components
-cd python-components
-git remote add upstream https://github.com/programming-the-iot/python-components.git
+cd cda-python-components
+git remote add upstream https://github.com/programming-the-iot/cda-python-components.git
 
 # Java components  
-cd ../piot-java-components
-git remote add upstream https://github.com/programming-the-iot/java-components.git
+cd ../gda-java-components
+git remote add upstream https://github.com/programming-the-iot/gda-java-components.git
 
 # When needed:
 git fetch upstream
