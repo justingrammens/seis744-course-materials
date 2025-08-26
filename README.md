@@ -83,7 +83,7 @@ cd ..
 # --- Java repo ---
 cd java-components
 git remote set-url origin git@github.com:<your-username>/java-components.git
-git remote -v
+git remote -v # verify the 'origin' now points to your private repo
 
 git branch -M main # rename branch from "default" to main
 git push -u origin main
