@@ -15,10 +15,10 @@ This course takes a hands-on, progressive approach to learning IoT and Machine L
 
 ## 🎯 Learning Approach
 
-### **Fork-Based Development Model**
+### ** Development Model**
 Unlike traditional courses, you'll work directly with professional-grade repositories:
 
-1. **Fork Andy King's Official Repositories** - Get real-world, production-quality code
+1. **Clone Andy King's Official Repositories** - Get real-world, production-quality code
 2. **Follow Progressive Exercises** - Each chapter builds on the previous
 3. **Add ML Enhancements** - Integrate machine learning throughout your development
 4. **Build Professional Portfolio** - Create industry-ready code repositories
@@ -47,41 +47,52 @@ java --version       # Should be 11+
 git --version        # Any recent version
 ```
 
-### **Step 2: Fork the Core Repositories**
+### **Step 2: Create and Clone the Core Repositories**
 
-#### **Required Forks:**
-1. **Python Components (CDA - Constrained Device Application):**
-   - **Original:** https://github.com/programming-the-iot/python-components
-   - **Fork to:** `https://github.com/{your-username}/piot-python-components`
+Login to your GitHub account and [create repositories](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository) named:
 
-2. **Java Components (GDA - Gateway Device Application):**
-   - **Original:** https://github.com/programming-the-iot/java-components  
-   - **Fork to:** `https://github.com/{your-username}/piot-java-components`
+1. python-components
+2. java-components
 
-#### **How to Fork:**
-1. Navigate to each repository above
-2. Click the "Fork" button (top right)
-3. Select your GitHub account as the destination
-4. Wait for GitHub to create your fork
-
-### **Step 3: Clone Your Forks Locally**
+#### **Clone Programming the IoT Repositories:**
 
 ```bash
-# Create working directory
-mkdir ~/programmingtheiot
-cd ~/programmingtheiot
+# Python
+git clone https://github.com/programming-the-iot/python-components.git
 
-# Clone your forks (replace {your-username})
-git clone https://github.com/{your-username}/piot-python-components.git
-git clone https://github.com/{your-username}/piot-java-components.git
+# Java
+git clone https://github.com/programming-the-iot/java-components.git
 
-# Clone this course materials repository
-git clone https://github.com/ust-seis744/seis744-course-materials.git
 ```
 
-### **Step 5: Setup a Virtal Python Environment and Install Modules
+This will create local folders:
 
-This is covered in the setup of the book. Here's how you would setup your virtial environment in the programmingtheiot directory. It will create a new folder called piotenv
+* python-components
+* java-components
+
+```bash
+# --- Python repo ---
+cd python-components
+git remote set-url origin git@github.com:<your-username>/python-components.git
+git remote -v      # verify the 'origin' now points to your private repo
+
+git branch -M main # rename branch from "default" to main
+git push -u origin main
+cd ..
+
+# --- Java repo ---
+cd java-components
+git remote set-url origin git@github.com:<your-username>/java-components.git
+git remote -v
+
+git branch -M main # rename branch from "default" to main
+git push -u origin main
+cd ..
+```
+
+### **Step 3: Setup a Virtal Python Environment and Install Modules
+
+This is covered in the setup of the book. Here's how you would setup your virtual environment in the programmingtheiot directory. It will create a new folder called piotenv
 
 On MAC OSX:
 
@@ -114,22 +125,22 @@ pip install setuptools
 ```
 
 
-### **Step 6: Set Up Upstream Remotes**
+### **Step 4: Set Up Upstream Remotes**
 
 This allows you to pull updates from Andy King's original repositories:
 
 ```bash
 # Python components
-cd piot-python-components
+cd python-components
 git remote add upstream https://github.com/programming-the-iot/python-components.git
 
 # Java components  
 cd ../piot-java-components
 git remote add upstream https://github.com/programming-the-iot/java-components.git
 
-# Verify remotes
-git remote -v
-# Should show: origin (your fork) and upstream (Andy's original)
+# When needed:
+git fetch upstream
+git merge upstream/default
 ```
 
 ---
