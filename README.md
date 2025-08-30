@@ -167,7 +167,7 @@ Where:
    cd piot-python-components
    git checkout main
    git pull origin main
-   git checkout -b chapter02  # Replace with current chapter
+   git checkout -b labmodule02  # Replace with current module
    ```
 
 2. **Follow Official Exercises:**
@@ -194,12 +194,20 @@ Where:
 5. **Submit for Review:**
    ```bash
    # Push chapter branch
-   git push origin chapter02
+   git push origin labmodule02
    
    # Create Pull Request on GitHub:
    # - From: chapter02 branch
    # - To: main branch
    # - Include: Exercise completion summary
+   ```
+
+   After you merge from the feature branch. You can choose to delete the remte branch and then prune local branches. The commands below delete the remote, then prune the loal branched and the delete the local branch.
+
+   ```bash
+   git push origin -d labmodule02
+   git fetch --prune
+   git branch -d labmodule02
    ```
 
 ---
