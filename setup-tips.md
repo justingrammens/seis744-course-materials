@@ -1,6 +1,6 @@
 ## Issues Setting up PiSense on OSX
 
-As I tried to get the PiSense setup on OSX, there'sa few things that I needed to do.
+As I tried to get the PiSense setup on OSX, there were a few things that I needed to do.
 
 When installing [PiSense](https://pisense.readthedocs.io/en/release-0.2/)
 
