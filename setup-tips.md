@@ -87,11 +87,15 @@ GLib.Bytes.new(self._screen_client.rgb_array.tobytes()),
 
 --
 
+### Python Interpreter Setup In Eclipse
+
+These notes below don't relate to the PI Sense Setup and configuration. They are just notes that I created while working to set up the path to my Python Interpreter in Eclipse. If you're already able to run Python in your Eclipse environment or are using Visual Studio Code, you can ignore these notes below.
+
 Setting up the Python Interpreter, you'll want to make sure you have the path directory to the piotvenv virtual envionment  you have setup, otherwise it will not have access to the libraries you have installed in that enviornment. So for example:
 
 Follow these steps:
 
-Step-by-Step to Add the venv Interpreter Properly
+Step-by-Step to Add the venv Interpreter Properly.
 
 Preferences ▸ PyDev ▸ Interpreters ▸ Python Interpreter
 Click New...
