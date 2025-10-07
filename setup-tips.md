@@ -85,7 +85,7 @@ Modify the line to:
 GLib.Bytes.new(self._screen_client.rgb_array.tobytes()),
 ```
 
---
+---
 
 ## Python Interpreter Setup In Eclipse
 
