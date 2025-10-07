@@ -6,7 +6,7 @@ When installing [PiSense](https://pisense.readthedocs.io/en/release-0.2/)
 
 Make sure that you follow the installation carefully for the [emulator](https://sense-emu.readthedocs.io/en/v1.1/)
 
-You need to make sure you have brew installed correctly and I was not able to use existing virtual environment, it only worked when I used a new environment and create the virtual envionment using the command.
+You need to make sure you have brew installed correctly and it only worked when I created the virtual environment using the --system-site-packages flag.
 
 python3 -m venv virtualenv --system-site-packages
 
