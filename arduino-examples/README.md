@@ -16,7 +16,40 @@ This repository contains a collection of Arduino sketches demonstrating various 
 - Outputs JSON: `{"proximity": <value>}`
 - Update rate: 500ms
 
-**Physical Principle:** The APDS9960 emits infrared light and measures how much light reflects back. More reflection indicates a closer object. Works best with reflective surfaces and is affected by ambient light conditions.
+**How It Works:**
+1. The APDS9960 emits infrared (IR) light
+2. A photodiode measures the amount of reflected IR light
+3. The onboard logic maps the intensity to a 0-255 proximity value:
+   - Low reflection → low number
+   - High reflection → high number
+4. The result depends on:
+   - Surface color (white objects reflect more)
+   - Surface texture (smooth vs matte)
+   - Ambient lighting (sunlight can interfere)
+
+**Understanding the Output:**
+
+| Value | Meaning | Notes |
+|-------|---------|-------|
+| 0 | Object is far or not detected | Very little reflected IR light |
+| 50-150 | Object nearby | Moderate reflection |
+| 200-254 | Object very close | Strong reflection |
+| 255 | Sensor saturated | Too close or bright surface |
+
+**Important:** The proximity sensor outputs **relative intensity values**, not physical distance units (not cm or inches). The reading represents how much IR light reflects back, which varies significantly with material color and reflectivity.
+
+**Typical Use Cases:**
+- Detect if a hand or object is near the board
+- Implement gesture detection (swipes, taps, presence)
+- Trigger events when something approaches
+
+**Limitations:**
+- **Not accurate for physical distance measurement** - values are relative, not absolute
+- Sensitive to lighting conditions and object color
+- Limited range (~10-20 cm)
+- Cannot provide measurements in centimeters or other distance units
+
+**vs. Ultrasonic Sensors:** If you need **true distance measurement in centimeters**, use an ultrasonic or time-of-flight (ToF) sensor instead. Unlike this optical proximity sensor which gives relative intensity values, ultrasonic sensors measure actual distance by timing sound wave echoes and can work reliably at longer ranges (up to 4 meters).
 
 ---
 
@@ -49,7 +82,7 @@ Although both the APDS9960 (optical proximity) and Grove Ultrasonic Ranger (acou
 | **Best For** | Gesture detection, close proximity | Distance measurement, obstacle detection |
 | **Affected By** | Ambient light, surface reflectivity | Temperature, humidity, soft surfaces |
 | **Speed** | Very fast (<1ms) | Moderate (~30ms per reading) |
-| **Directionality** | Narrow beam | Wide cone (~15� beam) |
+| **Directionality** | Narrow beam | Wide cone (~15� beam) |
 
 **When to Use Optical (APDS9960):**
 - Gesture recognition or swipe detection
