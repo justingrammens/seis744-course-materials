@@ -23,6 +23,39 @@ Both scripts read JSON-formatted sensor data from a serial port (e.g., Arduino N
 
 Publishes sensor data to a local or remote MQTT broker.
 
+### Setting Up Mosquitto MQTT Broker
+
+For local development and testing, you can use Mosquitto as your MQTT broker. This setup requires **multiple terminal windows** to run the broker, publisher, and subscriber(s) simultaneously.
+
+#### Terminal Setup
+
+**Terminal 1: Start the Mosquitto Broker**
+```bash
+mosquitto -v
+```
+This starts the MQTT broker in verbose mode. You should see output indicating the broker is listening on port 1883.
+
+**Terminal 2: Subscribe to Sensor Data**
+```bash
+mosquitto_sub -h localhost -t 'sensors/#' -v
+```
+This subscribes to all topics under `sensors/` and will display incoming messages. The `-v` flag shows both the topic and message payload.
+
+**Terminal 3: Run the Serial Data Bridge**
+```bash
+python3 serial-to-mqtt.py
+```
+This script reads sensor data from your Arduino and publishes it to the MQTT broker, which will then be received by any active subscribers.
+
+#### Expected Workflow
+
+1. Start the broker first (Terminal 1)
+2. Start one or more subscribers (Terminal 2)
+3. Start the data publisher script (Terminal 3)
+4. Observe sensor data flowing from Arduino → Python script → MQTT broker → Subscribers
+
+You can open additional terminals to run multiple subscribers on different topic patterns to filter specific sensor data.
+
 ### Configuration
 
 Set environment variables or use defaults:
