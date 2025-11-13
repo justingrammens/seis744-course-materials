@@ -1,6 +1,5 @@
 #include "Ultrasonic.h"
 
-// Change to 12 if you moved the sensor to the D12 Grove port
 #define SIG_PIN 11
 
 Ultrasonic ultrasonic(SIG_PIN);
