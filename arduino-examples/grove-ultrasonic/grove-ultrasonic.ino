@@ -1,6 +1,6 @@
 #include "Ultrasonic.h"
 
-#define SIG_PIN 11
+#define SIG_PIN 4
 
 Ultrasonic ultrasonic(SIG_PIN);
 

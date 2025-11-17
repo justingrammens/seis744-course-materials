@@ -81,13 +81,10 @@ void loop() {
     lastPublishMs = now;
 
     // Publish one compact JSON line (bridge will send to MQTT)
-    Serial.print("{\"event\":\"loud\",\"sound_level\":");
+    Serial.print("{\"name\":\"sound_level\",\"value\":");
     Serial.print(level, 1);
-    Serial.print(",\"floor\":");
-    Serial.print(noiseFloor, 1);
-    Serial.print(",\"delta\":");
-    Serial.print(delta, 1);
     Serial.println("}");
+
   }
 
   // Reset trigger after we fall below hysteresis

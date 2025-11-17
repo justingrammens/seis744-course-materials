@@ -1,7 +1,9 @@
 #include <Arduino_APDS9960.h>
 void setup(){
-  Serial.begin(115200); delay(1000);
-  if (!APDS.begin()) { Serial.println("{\"error\":\"APDS init failed\"}"); while(1){} }
+  Serial.begin(115200); 
+  delay(1000);
+  if (!APDS.begin()) { Serial.println("{\"error\":\"APDS init failed\"}"); 
+  while(1){} }
   Serial.println("APDS proximity demo");
 }
 void loop(){

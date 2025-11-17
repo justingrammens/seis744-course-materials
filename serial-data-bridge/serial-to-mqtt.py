@@ -9,7 +9,7 @@ SERIAL_BAUD   = int(os.getenv("NANO_BAUD", "115200"))
 PORT_HINT     = os.getenv("NANO_PORT", "")              # e.g., "/dev/cu.usbmodem113101" or "COM5"
 MQTT_HOST     = os.getenv("MQTT_HOST", "localhost")
 MQTT_PORT     = int(os.getenv("MQTT_PORT", "1883"))
-MQTT_TOPIC    = os.getenv("MQTT_TOPIC", "sensors/nano33ble/data")
+MQTT_TOPIC    = os.getenv("MQTT_TOPIC", "PIOT/ConstrainedDevice/SensorMsg")
 MQTT_CLIENTID = os.getenv("MQTT_CLIENTID", "nano33ble-data-bridge")
 QOS           = int(os.getenv("MQTT_QOS", "0"))         # 0 or 1 is fine here
 
@@ -75,8 +75,10 @@ def main():
                 if not line:
                     continue
                 try:
+                    print(f"← {line}")
                     payload = json.loads(line)   # Expect {"distance_cm": <int>}
                 except json.JSONDecodeError:
+                    print(f"⚠️  Invalid JSON: {line}", file=sys.stderr)
                     continue
 
                 # Publish the JSON as-is
